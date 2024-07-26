@@ -1,7 +1,7 @@
-from django.shortcuts import render
-import numpy as np
 import random
-
+import numpy as np
+from faker import Faker
+from django.shortcuts import render
 # Create your views here.
 
 def index(request):
@@ -39,3 +39,33 @@ def lotto(request):
     }
 
     return render(request, 'lotto.html', context)
+
+def username(request, name):
+    context = {
+        'name': name,
+    }
+
+    return render(request, 'username.html', context)
+
+def cube(request, number):
+    result = number ** 3
+
+    context = {
+        'result': result
+    }
+
+    return render(request, 'cube.html', context)
+
+def posts(request):
+    fake = Faker()
+
+    fake_posts = []
+
+    for i in range(100):
+        fake_posts.append(fake.text())
+
+    context = {
+        'fake_posts': fake_posts
+    }
+
+    return render(request, 'posts.html', context)

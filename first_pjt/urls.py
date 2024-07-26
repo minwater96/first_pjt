@@ -25,4 +25,7 @@ urlpatterns = [
     path('hello/', views.hello),
     path('lunch/', views.lunch),
     path('lotto', views.lotto),
+    path('username/<name>/', views.username), #<>안에 들어오는 것은 변수처리
+    path('cube/<int:number>/', views.cube),
+    path('posts/', views.posts),
 ]
